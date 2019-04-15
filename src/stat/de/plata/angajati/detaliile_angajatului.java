@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package stat.de.plata.angajati;
 
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,7 +25,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class detaliile_angajatului extends javax.swing.JFrame {
 
-
     PreparedStatement ps=null;
     ResultSet rs=null;
     Connection conexiune;
@@ -38,10 +32,15 @@ public class detaliile_angajatului extends javax.swing.JFrame {
     public String path;
     public String insereaza;
     byte[] imageInByte = null;
+    
     public detaliile_angajatului() {
         conexiune = conexiune_baza_de_date.baza_de_date();
         initComponents();
-        //conexiune = conexiune_baza_de_date.baza_de_date();
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+
+        setResizable(false);
     }
 
     /**
@@ -87,7 +86,7 @@ public class detaliile_angajatului extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Detaliile Angajatului"));
         jPanel1.setToolTipText("");
