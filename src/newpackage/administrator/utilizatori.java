@@ -5,6 +5,8 @@
  */
 package newpackage.administrator;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +27,11 @@ public class utilizatori extends javax.swing.JFrame {
         conexiune = conexiune_baza_de_date.baza_de_date();
         initComponents();
         populare_combo();
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+
+        setResizable(false);
     }
 
     /**
@@ -52,7 +59,7 @@ public class utilizatori extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -271,8 +278,8 @@ public class utilizatori extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        int p = JOptionPane.showConfirmDialog(null, "Vrei sa adaugi o noua inregistrare?","Add Record",JOptionPane.YES_NO_OPTION);
-        if(p==0){        // TODO add your handling code here:
+        int buton_selectat = JOptionPane.showConfirmDialog(null, "Vrei sa adaugi o noua inregistrare?","Add Record",JOptionPane.YES_NO_OPTION);
+         if(buton_selectat == JOptionPane.YES_OPTION){
 
         try {
 
@@ -309,8 +316,8 @@ public class utilizatori extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         int p = JOptionPane.showConfirmDialog(null, "Vrei sa actualizezi aceasta inregistrare?","Update Record",JOptionPane.YES_NO_OPTION);
-        if(p==0){
+         int buton_selectat = JOptionPane.showConfirmDialog(null, "Vrei sa actualizezi aceasta inregistrare?","Update Record",JOptionPane.YES_NO_OPTION);
+       if(buton_selectat == JOptionPane.YES_OPTION){
          try{
             
             String id = jTextField1.getText();
@@ -325,20 +332,23 @@ public class utilizatori extends javax.swing.JFrame {
             ps.execute();
             JOptionPane.showMessageDialog(null, "Record Updated");
             
-        }catch(Exception e){
-       JOptionPane.showMessageDialog(null, e);
-        }
-        finally {
-            
-            try{
-                rs.close();
-                ps.close();
-                
             }
             catch(Exception e){
                 
+           JOptionPane.showMessageDialog(null, e);
+           
             }
-        }
+            finally {
+
+                try{
+                    rs.close();
+                    ps.close();
+
+                }
+                catch(Exception e){
+
+                }
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -349,8 +359,8 @@ public class utilizatori extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-         int p = JOptionPane.showConfirmDialog(null, "Vrei sa stergi aceasta inregistrare?","Delete",JOptionPane.YES_NO_OPTION);
-        if(p==0){
+         int buton_selectat = JOptionPane.showConfirmDialog(null, "Vrei sa stergi aceasta inregistrare?","Delete",JOptionPane.YES_NO_OPTION);
+        if(buton_selectat == JOptionPane.YES_OPTION){
          String sql ="delete from Utilizatori where nume=? ";
         try{
             ps=conexiune.prepareStatement(sql);
@@ -362,6 +372,7 @@ public class utilizatori extends javax.swing.JFrame {
         }catch(Exception e){
             
             JOptionPane.showMessageDialog(null, e);
+        
         }finally {
             
             try{
@@ -398,14 +409,13 @@ public class utilizatori extends javax.swing.JFrame {
             
             while(rs.next()) {
                 String name =rs.getString("nume");
-                jComboBox1.addItem(name);
-                
-                
+                jComboBox1.addItem(name); 
             }
             
         }catch (Exception e){
             
             JOptionPane.showMessageDialog(null, e);  
+        
         } finally {
             
             try{
