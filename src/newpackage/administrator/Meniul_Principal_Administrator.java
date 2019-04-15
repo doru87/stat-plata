@@ -5,6 +5,8 @@
  */
 package newpackage.administrator;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import stat.de.plata.angajati.*;
 
 /**
@@ -13,11 +15,14 @@ import stat.de.plata.angajati.*;
  */
 public class Meniul_Principal_Administrator extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Meniul_Principal
-     */
     public Meniul_Principal_Administrator() {
         initComponents();
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+
+        setResizable(false);
+        
 
 
     }
@@ -42,7 +47,7 @@ public class Meniul_Principal_Administrator extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setText("Detaliile Angajatului");
