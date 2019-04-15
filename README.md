@@ -1,6 +1,8 @@
 # stat-plata
+<p align="center">
+  <img src="https://github.com/doru87/stat-plata/blob/master/src/stat/de/plata/angajati/imagini/2019-04-15_173851.jpg" width="256" title="Github Logo">
+</p>
 
-![alt text](https://github.com/doru87/stat-plata/blob/master/src/stat/de/plata/angajati/imagini/2019-04-15_173851.jpg =250x250)
 ![alt text](https://github.com/doru87/stat-plata/blob/master/src/stat/de/plata/angajati/imagini/2019-04-15_173917.jpg)
 ![alt text](https://github.com/doru87/stat-plata/blob/master/src/stat/de/plata/angajati/imagini/2019-04-15_173941.jpg)
 ![alt text](https://github.com/doru87/stat-plata/blob/master/src/stat/de/plata/angajati/imagini/2019-04-15_174022.jpg)
