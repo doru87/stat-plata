@@ -1,6 +1,6 @@
 # stat-plata
 <p align="center">
-  <img src="https://github.com/doru87/stat-plata/blob/master/src/stat/de/plata/angajati/imagini/2019-04-15_173851.jpg" width="256" title="Github Logo">
+  <img src="https://github.com/doru87/stat-plata/blob/master/src/stat/de/plata/angajati/imagini/2019-04-15_173851.jpg" width="700" height="500">
 </p>
 
 ![alt text](https://github.com/doru87/stat-plata/blob/master/src/stat/de/plata/angajati/imagini/2019-04-15_173917.jpg)
